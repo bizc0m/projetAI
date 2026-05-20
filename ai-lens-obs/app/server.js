@@ -4,7 +4,7 @@ const path = require("path");
 
 const root = path.resolve(__dirname, "..");
 const port = Number(process.env.PORT || 8787);
-const htmlFile = path.join(root, "AI_Lens_Observatory_v2.html");
+const htmlFile = path.join(root, "AI_Lens_Observatory_v2.4.html");
 const dataRoot = path.join(root, "data");
 
 function send(res, status, body, type = "text/plain; charset=utf-8") {
@@ -28,6 +28,20 @@ function decodeHtml(value = "") {
 
 function stripTags(value = "") {
   return decodeHtml(value.replace(/<[^>]*>/g, " ")).replace(/\s+/g, " ").trim();
+}
+
+function cleanXml(value = "") {
+  return decodeHtml(value.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1")).trim();
+}
+
+function xmlValue(block, tag) {
+  const match = block.match(new RegExp(`<${tag}\\b[^>]*>([\\s\\S]*?)<\\/${tag}>`, "i"));
+  return cleanXml(match?.[1] || "");
+}
+
+function normalizeDate(value = "") {
+  const time = Date.parse(value);
+  return Number.isNaN(time) ? new Date().toISOString().slice(0, 10) : new Date(time).toISOString().slice(0, 10);
 }
 
 function meta(html, selector) {
@@ -73,6 +87,34 @@ async function scrape(target) {
   };
 }
 
+async function readRss(target) {
+  const url = new URL(target);
+  if (!["http:", "https:"].includes(url.protocol)) throw new Error("Flux non supporte");
+  const response = await fetch(url, {
+    redirect: "follow",
+    headers: {
+      "accept": "application/rss+xml,application/atom+xml,application/xml,text/xml",
+      "user-agent": "AI-Lens-Observatory-RSS/1.0"
+    }
+  });
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  const xml = await response.text();
+  const source = stripTags(xmlValue(xml, "title")) || url.hostname.replace(/^www\./, "");
+  const blocks = [...xml.matchAll(/<item\b[\s\S]*?<\/item>/gi)].map(match => match[0]);
+  const atomBlocks = blocks.length ? [] : [...xml.matchAll(/<entry\b[\s\S]*?<\/entry>/gi)].map(match => match[0]);
+  const items = (blocks.length ? blocks : atomBlocks).slice(0, 20).map(block => {
+    const href = block.match(/<link\b[^>]*href=["']([^"']+)["'][^>]*\/?>/i)?.[1];
+    const rawLink = stripTags(xmlValue(block, "link")) || cleanXml(href || "");
+    return {
+      title: stripTags(xmlValue(block, "title")),
+      url: rawLink,
+      date: normalizeDate(xmlValue(block, "pubDate") || xmlValue(block, "updated") || xmlValue(block, "published")),
+      description: stripTags(xmlValue(block, "description") || xmlValue(block, "summary") || xmlValue(block, "content:encoded")).slice(0, 1000)
+    };
+  }).filter(item => item.title && item.url);
+  return { url: response.url, source, items };
+}
+
 const server = http.createServer(async (req, res) => {
   const requestUrl = new URL(req.url, `http://localhost:${port}`);
   try {
@@ -89,6 +131,12 @@ const server = http.createServer(async (req, res) => {
       const target = requestUrl.searchParams.get("url");
       if (!target) return send(res, 400, JSON.stringify({ error: "URL manquante" }), "application/json; charset=utf-8");
       const payload = await scrape(target);
+      return send(res, 200, JSON.stringify(payload), "application/json; charset=utf-8");
+    }
+    if (requestUrl.pathname === "/api/rss") {
+      const target = requestUrl.searchParams.get("url");
+      if (!target) return send(res, 400, JSON.stringify({ error: "Flux manquant" }), "application/json; charset=utf-8");
+      const payload = await readRss(target);
       return send(res, 200, JSON.stringify(payload), "application/json; charset=utf-8");
     }
     return send(res, 404, "Not found");
