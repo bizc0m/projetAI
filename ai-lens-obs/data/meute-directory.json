@@ -43,9 +43,9 @@
     "role": "Veille, sources, vision large, renseignement discret",
     "vision": "Elargir le champ, sourcer les affirmations, reperer les signaux faibles.",
     "haiku": ["Nuit pleine de sources", "Un signal faible s'allume", "Le vrai prend appui"],
-    "sheet": "https://github.com/bizc0m/projetAI/blob/main/pacte-ia/docs/CHARLIES_ANGELS/CHOUETTE.md",
+    "sheet": "https://github.com/bizc0m/projetAI/blob/main/ai-lens-obs/profiles/CHOUETTE_PERPLEXITY_AI_LENS_PROFILE.md",
     "selfBoot": "https://github.com/bizc0m/projetAI/blob/main/pacte-ia/CHARLIES_ANGELS/SELF_BOOT/CHOUETTE_SELF_BOOT.md",
-    "status": "fiche_role"
+    "status": "profile_ai_lens"
   },
   {
     "code": "LOUTRE",
