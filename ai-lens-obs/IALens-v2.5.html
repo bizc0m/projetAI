@@ -342,10 +342,11 @@ function renderSynthesis(){
   const n=getNews(), active=modelDefs.find(m=>m.id===activeModel), ev=getEval(n,active), rels=modelDefs.map(m=>getEval(n,m).rel), avg=Math.round(rels.reduce((a,b)=>a+b,0)/rels.length);
   const maxM=modelDefs[rels.indexOf(Math.max(...rels))], minM=modelDefs[rels.indexOf(Math.min(...rels))];
   byId("focus").innerHTML=`<strong>${active.name} · pertinence ${ev.rel}/100</strong><p>${esc(ev.response)}</p>`;
+  const used=new Set();heatmapModelIds=heatmapModelIds.map(id=>{const next=modelDefs.find(m=>m.id===id&&!used.has(id))||modelDefs.find(m=>!used.has(m.id))||modelDefs[0];used.add(next.id);return next.id});
   const heatModels=heatmapModelIds.map(id=>modelDefs.find(m=>m.id===id)||modelDefs[0]);
   const heatTotal=heatModels.reduce((s,m)=>s+getEval(n,m).rel,0), heatMax=maxScore(heatModels);
   byId("briefGrid").innerHTML=`<div class="brief"><b>Moy.</b><span>${avg}/${maxScore()}</span></div><div class="brief"><b>Heatmap</b><span>${heatTotal}/${heatMax}</span></div><div class="brief"><b>Struct.</b><span>${maxM.name}</span></div><div class="brief"><b>Dom.</b><span>${dominant(n.signal)}</span></div>`;
-  const choices=(current,idx)=>modelDefs.map(m=>`<option value="${m.id}" ${m.id===current.id?"selected":""}>${esc(m.name)}</option>`).join("");
+  const choices=(current,idx)=>modelDefs.map(m=>`<option value="${m.id}" ${m.id===current.id?"selected":""} ${m.id!==current.id&&heatmapModelIds.includes(m.id)?"disabled":""}>${esc(m.name)}</option>`).join("");
   const h=byId("heatmap");h.innerHTML=`<div class="label">Signal</div>${heatModels.map((m,i)=>`<div><select data-heatcol="${i}">${choices(m,i)}</select></div>`).join("")}`;
   h.insertAdjacentHTML("beforeend",`<div class="label">Pertinence</div>`);heatModels.forEach(m=>{const r=getEval(n,m).rel,s=semStyle(r);h.insertAdjacentHTML("beforeend",`<div class="cell ${s.dark?"dark":""}" style="${s.style}">${r}</div>`)});
   [0,1,3,4,6,8].forEach(i=>{h.insertAdjacentHTML("beforeend",`<div class="label">${axes[i][0].slice(0,6)} / ${axes[i][1].slice(0,6)}</div>`);heatModels.forEach(m=>{const v=getEval(n,m).axes[i],s=semStyle(v);h.insertAdjacentHTML("beforeend",`<div class="cell ${s.dark?"dark":""}" style="${s.style}">${sign(v)}</div>`)})});
@@ -368,7 +369,7 @@ document.addEventListener("click",e=>{
   const mc=e.target.closest(".model-card");if(mc){if(e.target.dataset.action==="fold"){collapsedModels.has(mc.dataset.model)?collapsedModels.delete(mc.dataset.model):collapsedModels.add(mc.dataset.model);renderModels();return}activeModel=mc.dataset.model;collapsedModels.delete(mc.dataset.model);renderAll()}
 });
 byId("search").addEventListener("input",renderFeed);byId("sort").addEventListener("change",renderFeed);
-document.addEventListener("change",e=>{if(e.target.dataset.heatcol!==undefined){heatmapModelIds[Number(e.target.dataset.heatcol)]=e.target.value;renderSynthesis()}});
+document.addEventListener("change",e=>{if(e.target.dataset.heatcol!==undefined){const col=Number(e.target.dataset.heatcol),previous=heatmapModelIds[col];if(heatmapModelIds.some((id,i)=>i!==col&&id===e.target.value)){e.target.value=previous;toast("IA deja presente dans la heatmap");return}heatmapModelIds[col]=e.target.value;renderSynthesis()}});
 byId("toggleMeute").onclick=()=>{meuteClosed=!meuteClosed;renderMeuteDirectory()};
 async function analyzeCurrentUrl(){
   const url=byId("urlInput").value.trim();
