@@ -4,7 +4,7 @@ const path = require("path");
 
 const root = path.resolve(__dirname, "..");
 const port = Number(process.env.PORT || 8787);
-const htmlFile = path.join(root, "AI_Lens_Observatory_v3.2.html");
+const htmlFile = path.join(root, "AI_Lens_Observatory_v3.4.html");
 const dataRoot = path.join(root, "data");
 
 function send(res, status, body, type = "text/plain; charset=utf-8") {
