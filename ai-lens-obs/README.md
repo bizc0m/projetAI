@@ -9,7 +9,7 @@ AI Lens Observatory documente comment differents modeles analysent, scorent et i
 ## Structure
 
 ```txt
-Ai-lens-Obs/
+ai-lens-obs/
   README.md
   app/
   data/
@@ -20,9 +20,22 @@ Ai-lens-Obs/
   AI_Lens_Observatory_v2.html
 ```
 
+## Lancement local
+
+```bash
+npm start
+```
+
+Puis ouvrir :
+
+```txt
+http://localhost:8787
+```
+
+Le scrape URL passe par `app/server.js` et l'endpoint local `/api/scrape`.
+
 ## Notes
 
 - Le fichier `AI_Lens_Observatory_v2.html` est conserve comme artefact existant.
-- Les futures versions applicatives vont dans `app/`.
+- Le serveur local dans `app/` contourne les limites CORS du mode `file://`.
 - Les profils, donnees et exports doivent rester dans ce dossier projet.
-

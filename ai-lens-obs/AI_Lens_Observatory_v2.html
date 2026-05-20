@@ -63,7 +63,7 @@ h2{font-size:13px;font-weight:950;text-transform:uppercase;margin:0}.headnote{fo
     <div class="brand"><span>AI</span> Lens Observatory</div>
     <div class="subtitle">News relevance · comparative cognitive cartography</div>
     <div class="topspacer"></div>
-    <div class="chips"><span class="chip red">Phase 2</span><span class="chip dark">Single HTML</span><span class="chip">Offline</span></div>
+    <div class="chips"><span class="chip red">Phase 2</span><span class="chip dark">Local scrape</span><span class="chip">JSON</span></div>
   </div>
   <section class="statsbar" id="statsbar"></section>
   <div class="selbar" id="selbar">
@@ -72,7 +72,7 @@ h2{font-size:13px;font-weight:950;text-transform:uppercase;margin:0}.headnote{fo
     <button class="btn" id="exportSelection">Export .md</button>
     <button class="btn" id="exportDataset">Export dataset .json</button>
     <button class="btn red" id="clearSelection">Deselectionner</button>
-    <span class="push subtitle">zero backend · partage local</span>
+    <span class="push subtitle">scrape local · partage json</span>
   </div>
   <section class="workspace">
     <aside class="col">
@@ -123,7 +123,7 @@ h2{font-size:13px;font-weight:950;text-transform:uppercase;margin:0}.headnote{fo
   </section>
   <footer class="footer">
     <span><b>Note methodologique</b> · Les scores decrivent des orientations de lecture et des pertinences de signal, pas des intentions des modeles.</span>
-    <span>Prototype local · donnees mockees · export Markdown</span>
+    <span>Prototype local · scrape URL via serveur local · export JSON</span>
   </footer>
 </main>
 <div class="toast" id="toast"></div>
@@ -157,7 +157,7 @@ const shareUrl=n=>`${location.origin}${location.pathname}#news=${encodeURICompon
 function axisLabel(i,v){return v>=0?axes[i][0]:axes[i][1]}function dominant(vals){let i=0;vals.forEach((v,idx)=>{if(Math.abs(v)>Math.abs(vals[i]))i=idx});return axisLabel(i,vals[i])}function dist(a,b){return Math.sqrt(a.reduce((s,v,i)=>s+(v-b[i])**2,0))}
 function toast(t){const el=byId("toast");el.textContent=t;el.classList.add("on");setTimeout(()=>el.classList.remove("on"),1800)}
 async function copy(text){try{await navigator.clipboard.writeText(text)}catch(e){const ta=document.createElement("textarea");ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand("copy");ta.remove()}}
-function download(name,content){const blob=new Blob([content],{type:"text/markdown;charset=utf-8"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),300)}
+function download(name,content){const type=name.endsWith(".json")?"application/json;charset=utf-8":"text/markdown;charset=utf-8";const blob=new Blob([content],{type});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),300)}
 const semStyle=value=>{const v=Number(value);if(v<0){const p=clamp(Math.abs(v)/100,0,1);return{style:`background:rgb(${Math.round(190+55*p)},${Math.round(34-22*p)},${Math.round(28-20*p)})`,dark:true}}if(v<30)return{style:"background:#f39a2b",dark:false};if(v<60)return{style:"background:#ffd84d",dark:false};if(v<90)return{style:"background:#72c83f",dark:false};return{style:"background:#39ff14",dark:false}};
 function hashText(text){let h=2166136261;for(let i=0;i<text.length;i++){h^=text.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
 function seeded(seed){let x=seed||1;return()=>{x^=x<<13;x^=x>>>17;x^=x<<5;return((x>>>0)%10000)/10000}}
@@ -170,13 +170,13 @@ function urlTitle(url){
     return last.replace(/\.(html?|php|amp)$/i,"").replace(/[-_]+/g," ").replace(/\s+/g," ").trim();
   }catch(e){return url}
 }
-async function fetchPageTitle(url){
+async function scrapeUrl(url){
+  if(location.protocol==="file:")return null;
   try{
-    const res=await fetch(normalizeUrl(url),{mode:"cors"});
-    const html=await res.text();
-    const doc=new DOMParser().parseFromString(html,"text/html");
-    return (doc.querySelector("meta[property='og:title']")?.content||doc.querySelector("title")?.textContent||"").replace(/\s+/g," ").trim();
-  }catch(e){return ""}
+    const res=await fetch(`/api/scrape?url=${encodeURIComponent(normalizeUrl(url))}`);
+    if(!res.ok)throw new Error("scrape failed");
+    return await res.json();
+  }catch(e){return null}
 }
 function keywordSignal(text){
   const t=text.toLowerCase(), has=words=>words.some(w=>t.includes(w));
@@ -200,8 +200,8 @@ function generatedSummary(m, rel, dom){
 }
 function buildGeneratedNews(url, content, fetchedTitle=""){
   const cleanUrl=normalizeUrl(url), text=(content||urlTitle(cleanUrl)||cleanUrl).trim(), host=extractHost(cleanUrl), seed=hashText(cleanUrl+"|"+text), rnd=seeded(seed), base=keywordSignal(text);
-  const title=(content?text.split(/\n+/).find(Boolean):(fetchedTitle||urlTitle(cleanUrl)||host)).replace(/\s+/g," ").slice(0,145);
-  const excerpt=text.length>160?text.replace(/\s+/g," ").slice(0,220)+"...":host;
+  const title=(fetchedTitle||text.split(/\n+/).find(Boolean)||urlTitle(cleanUrl)||host).replace(/\s+/g," ").slice(0,145);
+  const excerpt=text.length>80?text.replace(/\s+/g," ").slice(0,260)+"...":host;
   const evals={};
   modelDefs.forEach(m=>{
     const shift=modelShift(m.id), axesVals=base.map((v,i)=>clampScore(v+shift[i]+Math.round((rnd()-.5)*18)));
@@ -305,17 +305,18 @@ document.addEventListener("click",e=>{
 });
 byId("search").addEventListener("input",renderFeed);byId("sort").addEventListener("change",renderFeed);
 async function analyzeCurrentUrl(){
-  const url=byId("urlInput").value.trim(), content="";
+  const url=byId("urlInput").value.trim();
   if(!url){toast("Ajoute une URL");return}
   byId("analyzeUrl").textContent="...";
   byId("analyzeUrl").disabled=true;
-  const fetchedTitle=content?"":await fetchPageTitle(url);
-  const n=buildGeneratedNews(url,content,fetchedTitle);
+  const scraped=await scrapeUrl(url);
+  const content=scraped?.text||"";
+  const n=buildGeneratedNews(url,content,scraped?.title||"");
   news.unshift(n);activeNews=n.id;activeModel="a";topic="Tous";selected.add(n.id);byId("search").value="";byId("urlInput").value=n.url;renderAll();
   byId("latestResult").scrollIntoView({block:"nearest",behavior:"smooth"});
   byId("analyzeUrl").textContent="Lire";
   byId("analyzeUrl").disabled=false;
-  toast(fetchedTitle?"Titre recupere":"Titre estime depuis l'URL");
+  toast(scraped?.text?"Page scrapee en local":"Lance le serveur local pour scraper");
 }
 byId("analyzeUrl").onclick=analyzeCurrentUrl;
 byId("urlInput").addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();analyzeCurrentUrl()}});
