@@ -5,6 +5,7 @@ const path = require("path");
 const root = path.resolve(__dirname, "..");
 const port = Number(process.env.PORT || 8787);
 const htmlFile = path.join(root, "AI_Lens_Observatory_v2.html");
+const dataRoot = path.join(root, "data");
 
 function send(res, status, body, type = "text/plain; charset=utf-8") {
   res.writeHead(status, {
@@ -77,6 +78,12 @@ const server = http.createServer(async (req, res) => {
   try {
     if (requestUrl.pathname === "/" || requestUrl.pathname === "/AI_Lens_Observatory_v2.html") {
       return send(res, 200, fs.readFileSync(htmlFile, "utf8"), "text/html; charset=utf-8");
+    }
+    if (requestUrl.pathname.startsWith("/data/")) {
+      const fileName = path.basename(requestUrl.pathname);
+      const filePath = path.join(dataRoot, fileName);
+      if (!filePath.startsWith(dataRoot) || !fs.existsSync(filePath)) return send(res, 404, "Not found");
+      return send(res, 200, fs.readFileSync(filePath, "utf8"), "application/json; charset=utf-8");
     }
     if (requestUrl.pathname === "/api/scrape") {
       const target = requestUrl.searchParams.get("url");

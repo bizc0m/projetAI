@@ -16,7 +16,7 @@ Repo cible unique : https://github.com/bizc0m/projetAI
 
 | Projet | Dossier |
 | --- | --- |
-| AI Lens Observatory | `Ai-lens-Obs/` |
+| AI Lens Observatory | `ai-lens-obs/` |
 | patate | `patate/` |
 | Prompt Matrix | `prompt-matrix/` |
 
@@ -26,7 +26,7 @@ Les artefacts AI Lens Observatory vivent dans :
 
 ```txt
 projetAI/
-  Ai-lens-Obs/
+  ai-lens-obs/
     profiles/
     prompts/
     app/

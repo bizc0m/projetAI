@@ -20,7 +20,7 @@ But : donner une lecture propre du depot sans deplacer ni supprimer les document
 | Organiser les projets IA GitHub | `docs/PROJET_AI_ORGANISATION.md` |
 | Rappeler les totems et modeles | `CHARLIES_ANGELS/TOTEMS_MODELES.md` |
 | Transmettre aux autres IA | `DISPATCH/OUTBOX/` |
-| Stocker les profils AI Lens | `../projetAI/Ai-lens-Obs/profiles/` |
+| Stocker les profils AI Lens | `../ai-lens-obs/profiles/` |
 | Installer le relais Pi | `docs/security/PI_MEUTE_RELAY_PACK.md` |
 | Envoyer moins de contexte aux agents | `docs/CONTEXT_PACK_ARCHITECTURE.md` |
 
@@ -66,7 +66,7 @@ Paquets courts a envoyer ou a traiter :
 Les profils analytiques des modeles ne sont pas stockes dans PACTE_IA.
 Ils vivent dans le projet dedie :
 
-- `../projetAI/Ai-lens-Obs/profiles/README.md`
+- `../ai-lens-obs/profiles/README.md`
 
 ### Sessions
 
@@ -138,7 +138,6 @@ PACTE_IA/
 ├── README.md                    entree publique
 ├── DOCS_INDEX.md                index maintenu
 ├── DOCS_MARKUP.md               carte d'organisation
-├── AI_LENS/                     profils analytiques par modele
 ├── docs/                        doctrine, protocoles, visions
 ├── CHARLIES_ANGELS/             profils et contrats de role
 ├── DISPATCH/                    paquets de relais

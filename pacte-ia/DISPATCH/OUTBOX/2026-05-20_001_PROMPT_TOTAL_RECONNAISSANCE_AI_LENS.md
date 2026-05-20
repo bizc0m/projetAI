@@ -7,7 +7,7 @@ Objectif : que tu te reconnaisses correctement, que tu repondes au prompt sans p
 Tu dois produire deux blocs Markdown copiables :
 
 1. une reponse de positionnement pour `DISPATCH/INBOX/` ;
-2. un profil analytique pour `../projetAI/Ai-lens-Obs/profiles/`.
+2. un profil analytique pour `../ai-lens-obs/profiles/`.
 
 Ne produis rien d'autre que ces deux blocs.
 
@@ -53,7 +53,7 @@ Si tu as acces au repo, lis uniquement :
 4. `ORDRE_DU_JOUR/INDEX.md`
 5. le dernier fichier date dans `ORDRE_DU_JOUR/`
 6. `docs/ORDRE_DU_JOUR_PROTOCOL.md`
-7. `../projetAI/Ai-lens-Obs/profiles/README.md`
+7. `../ai-lens-obs/profiles/README.md`
 
 Si tu n'as pas acces au repo :
 
@@ -166,7 +166,7 @@ Remplace `[NOM_CODE]` par ton nom code.
 # AI_LENS_PROFILE_[NOM_CODE]
 
 Fichier cible conseille :
-`../projetAI/Ai-lens-Obs/profiles/[NOM_CODE]_AI_LENS_PROFILE.md`
+`../ai-lens-obs/profiles/[NOM_CODE]_AI_LENS_PROFILE.md`
 
 ## 1. Identite du modele
 
