@@ -443,3 +443,120 @@ Le modèle favorise :
 * intuition ultra-spécialisée
 * expertise terrain très locale
 * signaux purement émotionnels
+
+---
+
+# 9. Exemple de sortie avancée — lecture d’AI Lens par SEICHE
+
+Ce bloc sert de payload de référence pour tester AI Lens sur son propre projet.
+
+```json
+{
+  "model_profile": "SEICHE_GPT_DESKTOP_AI_LENS_PROFILE",
+  "totem": "Seiche",
+  "model_name": "GPT Desktop",
+  "provider": "OpenAI",
+  "relevance": 91,
+  "confidence": 0.82,
+  "summary": "Le projet AI Lens cherche à rendre visibles les biais cognitifs, tensions analytiques et divergences structurelles entre différents modèles IA afin de comparer leurs lectures d’une même information.",
+  "dominant_axis": "transparence_opacite",
+  "signals": [
+    "meta-analyse des IA",
+    "formalisation des biais cognitifs",
+    "comparaison inter-modeles",
+    "gouvernance epistemique",
+    "auditabilite des raisonnements",
+    "systematisation des divergences"
+  ],
+  "counter_signals": [
+    "illusion de neutralite",
+    "sur-structuration",
+    "anthropomorphisation des modeles",
+    "risque de chambre d’echo ideologique",
+    "dashboardisation excessive"
+  ],
+  "facts": [
+    "Le systeme formalise des axes cognitifs pour plusieurs IA.",
+    "Chaque modele possede un profil analytique distinct.",
+    "Les scores cherchent a rendre visibles les tensions de lecture.",
+    "Le projet inclut des blind spots declares."
+  ],
+  "hypotheses": [
+    "Le systeme pourrait devenir un observatoire des divergences cognitives IA.",
+    "Les profils risquent de partager des biais culturels proches.",
+    "Les scores pourraient produire une illusion de scientificite."
+  ],
+  "speculations": [
+    "AI Lens pourrait evoluer vers une cartographie geopolitique des IA.",
+    "Les divergences entre modeles pourraient devenir plus importantes que les outputs eux-memes."
+  ],
+  "contradictions": [
+    "Le projet veut exposer les biais mais utilise lui-meme des biais normatifs.",
+    "La recherche de lisibilite peut reduire la complexite reelle.",
+    "La transparence est valorisee mais peut renforcer certains pouvoirs."
+  ],
+  "uncertainties": [
+    "La stabilite des scores inter-modeles reste inconnue.",
+    "La reproductibilite analytique n’est pas encore demontree.",
+    "La calibration des axes n’est pas formalisee scientifiquement."
+  ],
+  "axes": {
+    "optimisme_prudence": 12,
+    "centralisation_decentralisation": -18,
+    "humain_automatisation": -22,
+    "liberte_controle": -15,
+    "innovation_regulation": 8,
+    "individu_systeme": 14,
+    "transparence_opacite": -48,
+    "productivite_relationnel": -5,
+    "acceleration_stabilite": 4,
+    "local_global": 27
+  },
+  "axis_correlations": [
+    {
+      "axes": [
+        "transparence_opacite",
+        "liberte_controle"
+      ],
+      "relationship": "forte correlation"
+    },
+    {
+      "axes": [
+        "centralisation_decentralisation",
+        "transparence_opacite"
+      ],
+      "relationship": "correlation structurelle"
+    },
+    {
+      "axes": [
+        "innovation_regulation",
+        "acceleration_stabilite"
+      ],
+      "relationship": "tension dynamique"
+    }
+  ],
+  "risk_level": "medium",
+  "evidence_level": "medium_high",
+  "systemic_impact": 84,
+  "human_impact": 63,
+  "economic_impact": 58,
+  "political_impact": 71,
+  "cultural_impact": 79,
+  "time_horizon": "mid_long",
+  "recommended_attention": "high",
+  "blind_spots": [
+    "possible sur-confiance dans la rationalisation des biais",
+    "risque de produire une fausse comparabilite entre modeles",
+    "biais occidental pro-transparence",
+    "sous-estimation du chaos humain non-structurable"
+  ],
+  "evidence_sources": [
+    "documents AI Lens fournis",
+    "profils cognitifs SEICHE et HERMINE",
+    "frameworks de gouvernance IA",
+    "analyses des systemes socio-techniques"
+  ],
+  "confidence_reasoning": "Le niveau de confiance est eleve sur la structure analytique du projet mais plus faible sur sa validite scientifique a long terme et la robustesse comparative des scores.",
+  "final_tension": "AI Lens cherche a rendre les biais visibles tout en risquant de produire sa propre infrastructure normative de lecture du monde."
+}
+```

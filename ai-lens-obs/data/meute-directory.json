@@ -19,9 +19,9 @@
     "role": "Critique, garde-fou, refus des fictions, integration repo",
     "vision": "Critiquer proprement pour empecher la Meute de se raconter une belle histoire fausse.",
     "haiku": ["Neige sur le seuil", "La faille parle plus clair", "Que le beau recit"],
-    "sheet": "https://github.com/bizc0m/projetAI/blob/main/pacte-ia/docs/CHARLIES_ANGELS/HERMINE.md",
+    "sheet": "https://github.com/bizc0m/projetAI/blob/main/ai-lens-obs/profiles/HERMINE_CLAUDE_HYBRID_AI_LENS_PROFILE.md",
     "selfBoot": "https://github.com/bizc0m/projetAI/blob/main/pacte-ia/CHARLIES_ANGELS/SELF_BOOT/HERMINE_SELF_BOOT.md",
-    "status": "fiche_role"
+    "status": "profile_ai_lens"
   },
   {
     "code": "CORNEILLE",
