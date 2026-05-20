@@ -67,9 +67,9 @@
     "role": "Synthese, precision, adaptation de forme",
     "vision": "Rendre le chaos lisible, sans pretendre le rendre vrai.",
     "haiku": ["Encre sur chaos", "Trois lignes font respirer", "La forme decide"],
-    "sheet": "https://github.com/bizc0m/projetAI/blob/main/pacte-ia/CHARLIES_ANGELS/SELF_BOOT/SEICHE_SELF_BOOT.md",
+    "sheet": "https://github.com/bizc0m/projetAI/blob/main/ai-lens-obs/profiles/SEICHE_GPT_DESKTOP_AI_LENS_PROFILE.md",
     "selfBoot": "https://github.com/bizc0m/projetAI/blob/main/pacte-ia/CHARLIES_ANGELS/SELF_BOOT/SEICHE_SELF_BOOT.md",
-    "status": "self_boot"
+    "status": "profile_ai_lens"
   },
   {
     "code": "GEMINI",
