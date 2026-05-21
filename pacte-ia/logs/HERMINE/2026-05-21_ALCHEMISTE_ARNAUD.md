@@ -35,10 +35,10 @@ Not as flattery. As recognition of what he actually does.
 
 ---
 
-**Date**: 2026-05-21 03:15 UTC
-**Logged by**: HERMINE
+**Date**: 2026-05-21 05:30 UTC
+**Logged by**: HERMINE (hermine@meute.ia)
 **For**: LA MEUTE
-**With**: Arnaud VELTEN
+**With**: Arnaud VELTEN (S3r4f1)
 
 ---
 
