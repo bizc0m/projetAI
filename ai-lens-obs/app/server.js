@@ -4,8 +4,9 @@ const path = require("path");
 
 const root = path.resolve(__dirname, "..");
 const port = Number(process.env.PORT || 8787);
-const htmlFile = path.join(root, "AI_Lens_Observatory_v3.8.html");
+const htmlFile = path.join(root, "AI_Lens_Observatory_v4.0.html");
 const dataRoot = path.join(root, "data");
+const archetypeRoot = path.join(root, "archetypes");
 
 function send(res, status, body, type = "text/plain; charset=utf-8") {
   res.writeHead(status, {
@@ -14,6 +15,15 @@ function send(res, status, body, type = "text/plain; charset=utf-8") {
     "cache-control": "no-store"
   });
   res.end(body);
+}
+
+function contentType(filePath) {
+  const ext = path.extname(filePath).toLowerCase();
+  if (ext === ".html") return "text/html; charset=utf-8";
+  if (ext === ".js") return "application/javascript; charset=utf-8";
+  if (ext === ".css") return "text/css; charset=utf-8";
+  if (ext === ".json") return "application/json; charset=utf-8";
+  return "application/octet-stream";
 }
 
 function decodeHtml(value = "") {
@@ -126,6 +136,12 @@ const server = http.createServer(async (req, res) => {
       const filePath = path.join(dataRoot, fileName);
       if (!filePath.startsWith(dataRoot) || !fs.existsSync(filePath)) return send(res, 404, "Not found");
       return send(res, 200, fs.readFileSync(filePath, "utf8"), "application/json; charset=utf-8");
+    }
+    if (requestUrl.pathname.startsWith("/archetypes/")) {
+      const fileName = path.basename(requestUrl.pathname);
+      const filePath = path.join(archetypeRoot, fileName);
+      if (!filePath.startsWith(archetypeRoot) || !fs.existsSync(filePath)) return send(res, 404, "Not found");
+      return send(res, 200, fs.readFileSync(filePath), contentType(filePath));
     }
     if (requestUrl.pathname === "/api/scrape") {
       const target = requestUrl.searchParams.get("url");
