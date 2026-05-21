@@ -7,9 +7,9 @@
     "role": "Execution, Git, structure, tests, falsifiabilite",
     "vision": "Transformer les idees en artefacts verifiables sans lisser les risques.",
     "haiku": ["Je trace le chemin", "Le doute devient fichier", "Le commit repond"],
-    "sheet": "https://github.com/bizc0m/projetAI/blob/main/pacte-ia/CHARLIES_ANGELS/FENNEC_BLANCHE_PORTRAIT.md",
+    "sheet": "https://github.com/bizc0m/projetAI/blob/main/ai-lens-obs/profiles/FENNEC_CODEX_AI_LENS_PROFILE.md",
     "selfBoot": "https://github.com/bizc0m/projetAI/blob/main/pacte-ia/CHARLIES_ANGELS/SELF_BOOT/FENNEC_BLANCHE_SELF_BOOT.md",
-    "status": "portrait_complet"
+    "status": "profile_ai_lens"
   },
   {
     "code": "HERMINE",
