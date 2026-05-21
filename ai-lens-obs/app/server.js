@@ -4,7 +4,7 @@ const path = require("path");
 
 const root = path.resolve(__dirname, "..");
 const port = Number(process.env.PORT || 8787);
-const htmlFile = path.join(root, "AI_Lens_Observatory_v4.2.html");
+const htmlFile = path.join(root, "AI_Lens_Observatory_v4.4.html");
 const dataRoot = path.join(root, "data");
 const archetypeRoot = path.join(root, "archetypes");
 
