@@ -17,6 +17,7 @@ html,body{height:100%;font-family:'Inter',system-ui,sans-serif;background:#fff;c
 .top-bar .tb-actions button:hover{background:#1A1A1A;color:#fff}
 .top-bar .tb-actions .pr{background:#E50000;color:#fff;border-color:#E50000;box-shadow:2px 2px 0 -1px rgba(0,0,0,.3)}
 .top-bar .tb-actions .pr:hover{background:#c00;border-color:#c00}
+.top-bar .tb-actions .ok{background:#1A1A1A;color:#fff;border-color:#1A1A1A}
 .bot-bar{width:100%;padding:.7rem 2rem;border-top:2px solid #E0E0E0;background:#F5F5F5;font-size:.78rem;color:#666;text-align:center;flex-shrink:0}
 .bot-bar a{color:#E50000;font-weight:600;text-decoration:none}.bot-bar a:hover{text-decoration:underline}
 /* LANG SELECTOR */
@@ -173,6 +174,7 @@ canvas#radar{max-width:100%}
 <div class="top-bar">
   <h1><span>AI</span> Archetype Profiler</h1>
   <div class="tb-actions">
+    <button class="ok" onclick="saveToAILens()" id="btnSaveLens">Sauvegarder dans AI Lens</button>
     <button onclick="restartSame()" id="btnRestart"></button>
     <button class="pr" onclick="exportPDF()" id="btnExport"></button>
   </div>
@@ -835,6 +837,27 @@ function ma(sc){
 
 /* ===== RESULTS ===== */
 let us={}, rk=[];
+function currentArchetypePayload(){
+  const b=rk[0];
+  if(!b)return null;
+  return {
+    name:b.n,
+    subtitle:b.s,
+    description:b.d,
+    lang:LANG,
+    axes:us,
+    top:rk.slice(0,3).map(r=>({name:r.n,subtitle:r.s,score:r.pct,description:r.d})),
+    savedAt:new Date().toISOString()
+  };
+}
+function saveToAILens(){
+  const payload=currentArchetypePayload();
+  if(!payload)return;
+  try{localStorage.setItem('aiLensArchetype',JSON.stringify(payload))}catch(e){}
+  if(window.parent&&window.parent!==window)window.parent.postMessage({type:'ai-archetype-result',payload},'*');
+  const btn=document.getElementById('btnSaveLens');
+  if(btn){const old=btn.textContent;btn.textContent='Sauvegarde OK';setTimeout(()=>btn.textContent=old,1400)}
+}
 function sr(){
   us=cs(); rk=ma(us); const b=rk[0], t=I18N[LANG];
   document.getElementById('rh').innerHTML='<h2>'+b.n+'</h2><div class="sub">'+b.s+'</div><div class="adesc">'+b.d+'</div>';
@@ -842,7 +865,7 @@ function sr(){
   document.getElementById('t3box').innerHTML='<div class="t3">'+rk.slice(0,3).map(r=>'<div class="t3c"><div class="tn">'+r.n+'</div><div class="tp">'+r.pct+'% '+t.proximity+'</div><div class="td">'+r.s+'</div></div>').join('')+'</div>';
   document.getElementById('alc').innerHTML='<div class="axl">'+AIDS.map(a=>{const v=us[a],p=((v+100)/200)*100,c=v>=0?'#2b8a3e':'#E50000',sg=v>0?'+':'';return'<div class="axi"><div class="axlb"><span>'+a+'</span><span style="color:'+c+'">'+sg+v+'</span></div><div class="axbb"><div class="axbf" style="width:'+p+'%;background:'+c+'"></div></div></div>'}).join('')+'</div>';
   const sel=document.getElementById('os');sel.innerHTML='<option value="">'+t.noCompare+'</option>'+AR.map((a,i)=>'<option value="'+i+'">'+a.n+'</option>').join('');
-  br();bp();ss('results');
+  br();bp();ss('results');saveToAILens();
 }
 
 /* ===== RADAR ===== */
