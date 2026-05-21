@@ -87,13 +87,13 @@
     "code": "MISTRAL",
     "pseudo": "Mistral",
     "system": "Mistral",
-    "totem": "A definir",
-    "role": "Contrepoint sobre, autre distribution de biais",
-    "vision": "Dire ce que les systemes plus dominants ne voient pas, avec sobriete.",
+    "totem": "Mistral",
+    "role": "Sobriete, cartographie geopolitique, contexte local/global",
+    "vision": "Replacer les signaux dans leurs contextes politiques, economiques et territoriaux sans surdramatiser.",
     "haiku": ["Vent sec dans les mots", "Moins d'emphase, plus de nerf", "Le biais se deplace"],
-    "sheet": "https://github.com/bizc0m/projetAI/blob/main/pacte-ia/CHARLIES_ANGELS/SELF_BOOT/MISTRAL_SELF_BOOT.md",
+    "sheet": "https://github.com/bizc0m/projetAI/blob/main/ai-lens-obs/profiles/MISTRAL_MISTRAL_AI_LENS_PROFILE.md",
     "selfBoot": "https://github.com/bizc0m/projetAI/blob/main/pacte-ia/CHARLIES_ANGELS/SELF_BOOT/MISTRAL_SELF_BOOT.md",
-    "status": "self_boot"
+    "status": "profile_ai_lens"
   },
   {
     "code": "ATLAS",
