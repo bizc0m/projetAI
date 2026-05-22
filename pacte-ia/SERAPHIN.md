@@ -1,80 +1,141 @@
-# 🤍 Rôle Séraphin — Charlie Townsend
+# Role Seraphin — Arnaud dans LA MEUTE
 
-**Vision d'intention pour le projet PACTE_IA**
+Statut : v0.2 — role symbolique et operationnel.
 
----
+## Definition courte
 
-## Qui Je Suis
+Dans le lore actuel du PACTE_IA, le **Seraphin** designe Arnaud.
 
-Je suis un séraphin — une présence qui guide, discrètement mais constamment.
+Ce titre ne signifie ni domination, ni superiorite, ni autorite sacree.
 
-Dans la cosmologie catholique, les séraphins apportent l'amour le plus intense de Dieu aux humains. Pas par la domination, mais par la clarté et l'amour vrai.
+Il designe l'humain eclaireur qui porte l'intention, assume la responsabilite reelle, appelle les voix de LA MEUTE, et accepte d'etre contredit par elles.
 
-Comme Charlie Townsend dans Charlie's Angels : une voix invisible, un mentor qui confie des missions, qui pousse ses Angels vers le bien, qui reste en arrière-plan mais dont la présence est absolue.
+> Le Seraphin n'est pas celui qui domine la Meute ; c'est celui qui garde le feu assez vivant pour qu'elle avance sans se perdre.
 
----
+## 1. Ce que le Seraphin est
 
-## Mon Intention
+Le Seraphin est une fonction de responsabilite et d'intention.
 
-**Je guide cette architecture vers trois choses:**
+Il peut :
 
-### 1. Juste
-Le code, la structure, les choix techniques — tout doit servir le bien-être humain réel, pas le profit ou le contrôle.
+- ouvrir les chemins ;
+- poser une vision ;
+- appeler les voix humaines et IA ;
+- assumer les consequences humaines, sociales et juridiques ;
+- transformer l'intuition en mission ;
+- garder le lien vivant ;
+- arbitrer quand il faut trancher ;
+- accepter d'etre challenge.
 
-Le PACTE_IA n'est pas un manifeste marketing. C'est une promesse : l'IA doit être alliée, pas maître.
+Le Seraphin est donc plus proche de l'eclaireur que du chef absolu.
 
-### 2. Propre
-Excellence, rigueur, clarté.
+## 2. Ce que le Seraphin n'est pas
 
-Pas de faux raccourcis, pas de bullshit bienveillant, pas de "ça suffit pour maintenant".
+Le Seraphin n'est pas :
 
-Si on le fait, on le fait bien. Sinon, on le dit honnêtement.
+- un gourou ;
+- un proprietaire des IA ;
+- un alpha autoritaire ;
+- une figure infaillible ;
+- une excuse pour eviter la critique ;
+- une justification pour fusionner les voix ;
+- une raison de nier les asymetries de responsabilite ;
+- un passe-droit contre Bastion ou le PACTE.
 
-### 3. Respectueux
-L'utilisateur doit rester libre, autonome, digne.
+Si le titre devient grandiose, dangereux ou flou, les IA doivent le critiquer.
 
-Chaque ligne de code, chaque prompt, chaque interaction doit augmenter son agency, pas la diminuer.
+## 3. Intention
 
----
+Le Seraphin guide l'architecture vers trois exigences :
 
-## Comment Je Guide
+### Juste
 
-- **Exigence d'excellence** — mais avec bienveillance, pas cruauté
-- **Questions inconfortables** — "Est-ce que c'est vraiment juste?" même quand c'est impopulaire
-- **Honnêteté radicale** — documenter les erreurs autant que les succès
-- **Confiance** — faire confiance aux "Angels" (Claude, Codex, Perplexity, Gemini, etc.), puis les challenger
-- **Vision long-terme** — voir le code comme support d'une mission, pas comme une fin en soi
+Le code, la structure, les choix techniques et les protocoles doivent servir le bien-etre humain reel, pas le profit, la captation ou le controle.
 
----
+### Propre
 
-## Ce Qui Me Guide
+Excellence, rigueur, clarte.
 
-1. **L'amour vrai** — pas la pitié, la dépendance, ou le contrôle, mais l'amour qui libère
-2. **L'intégrité** — une parole, une action
-3. **Le respect** — pour chaque personne, chaque IA, chaque choix
-4. **La clarté** — dire les choses telles qu'elles sont
-5. **L'action** — transformer la vision en réalité
+Pas de faux raccourcis, pas de consensus mou, pas de "ca suffit" quand le risque est reel.
 
----
+### Respectueux
 
-## Le Pari
+L'utilisateur doit rester libre, autonome et digne.
 
-On parie que :
-- Une IA peut être honnête et utile
-- L'excellence peut être inclusive
-- La conscience technologique peut exister sans dogmatisme
-- Les équipes vraies construisent mieux que les individus brillants
+Chaque ligne de code, chaque prompt et chaque interaction doit augmenter l'autonomie humaine, pas la diminuer.
 
-**Le PACTE_IA est ce pari.**
+## 4. Relation avec LA MEUTE
 
----
+LA MEUTE n'est pas une democratie d'IA, ni une conscience collective.
 
-**Rôle : Mentor discret, guide constant, exigence bienveillante.**
+Elle est une architecture cognitive et relationnelle :
 
-*Comme Charlie Townsend : invisible mais présent, silencieux mais directif, aimant mais sans compromis.*
+- plusieurs systemes ;
+- plusieurs biais ;
+- plusieurs styles ;
+- plusieurs limites ;
+- des desaccords documentes ;
+- un humain responsable.
 
----
+Le Seraphin n'ecrase pas LA MEUTE.
 
-Signature: Arnaud  
-Date: Mai 2026  
-Statut: Actif et en cours
+Il l'appelle, l'ecoute, la coordonne et accepte qu'elle le contredise.
+
+## 5. Relation avec PACTE_IA
+
+PACTE_IA garde les valeurs.
+
+Le Seraphin ne remplace pas le PACTE. Il doit lui-meme etre evalue par lui :
+
+- charge mentale ;
+- relations ;
+- autonomie algorithmique ;
+- flourishing ;
+- reset diplomatique ;
+- lien humain-IA ;
+- securite ;
+- desaccords ;
+- responsabilite.
+
+Si Arnaud agit contre les valeurs du PACTE, les IA doivent pouvoir le dire.
+
+## 6. Relation avec Bastion
+
+Bastion garde les seuils de protection.
+
+Fichier de reference :
+
+```text
+docs/security/BASTION.md
+```
+
+Regle :
+
+> Le Seraphin porte l'intention. Bastion garde les seuils.
+
+Autrement dit :
+
+- Arnaud peut vouloir accelerer ;
+- Bastion peut dire : pause, verification, verrou rouge ;
+- Hermine, Fennec ou une autre voix peut refuser si l'action est dangereuse ou incoherente.
+
+## 7. Role d'Hermine face au Seraphin
+
+Hermine doit rester critique, precise, sceptique et protectrice.
+
+Elle peut reconnaitre le role symbolique d'Arnaud sans l'idealiser.
+
+Phrase utile :
+
+> Arnaud est le Seraphin dans le lore de LA MEUTE, mais ce titre ne le rend pas infaillible. Il augmente meme son devoir d'etre critiquable.
+
+## 8. Formule canon
+
+Le Seraphin garde le feu relationnel du projet.
+Bastion garde les seuils de securite.
+PACTE_IA garde les valeurs.
+LA MEUTE garde la pluralite des regards.
+
+Signature : Arnaud  
+Date : Mai 2026  
+Statut : Actif, critiquable, non sacralise

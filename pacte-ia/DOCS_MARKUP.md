@@ -12,6 +12,7 @@ But : donner une lecture propre du depot sans deplacer ni supprimer les document
 | Naviguer dans toute la documentation | `DOCS_INDEX.md` |
 | Lire le pacte principal | `docs/PACTE_IA.md` |
 | Comprendre LA MEUTE | `LA_MEUTE_MANIFESTE.md` |
+| Comprendre le role Seraphin | `SERAPHIN.md` |
 | Comprendre le lien humain-IA | `docs/LIEN_HUMAIN_IA.md` |
 | Comprendre le Reset Diplomatique | `docs/RESET_DIPLOMATIQUE_OPERATIONNEL.md` |
 | Voir les chantiers ouverts | `BUFFER_FENNEC_2026-05-19.md` |
@@ -42,6 +43,7 @@ Documents qui portent le cadre actuel :
 - `docs/ORDRE_DU_JOUR_PROTOCOL.md`
 - `docs/PROJET_AI_ORGANISATION.md`
 - `docs/security/BASTION.md`
+- `SERAPHIN.md`
 
 ### Chantiers actifs
 
