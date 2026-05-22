@@ -1,5 +1,34 @@
+# 🔒 MEUTE Private
+.meute_private/
+.env
+.env.local
+credentials.json
+secrets/
+
+# Node
+node_modules/
+.npm
+package-lock.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
 .DS_Store
 **/.DS_Store
-node_modules/
-.env
-.env.*
+Thumbs.db
+
+# Build
+dist/
+build/
+*.log
