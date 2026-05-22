@@ -22,6 +22,7 @@ But : donner une lecture propre du depot sans deplacer ni supprimer les document
 | Transmettre aux autres IA | `DISPATCH/OUTBOX/` |
 | Stocker les profils AI Lens | `../ai-lens-obs/profiles/` |
 | Installer le relais Pi | `docs/security/PI_MEUTE_RELAY_PACK.md` |
+| Proteger le projet sans paranoia | `docs/security/BASTION.md` |
 | Envoyer moins de contexte aux agents | `docs/CONTEXT_PACK_ARCHITECTURE.md` |
 
 ## Carte par statut
@@ -40,6 +41,7 @@ Documents qui portent le cadre actuel :
 - `docs/CONTEXT_PACK_ARCHITECTURE.md`
 - `docs/ORDRE_DU_JOUR_PROTOCOL.md`
 - `docs/PROJET_AI_ORGANISATION.md`
+- `docs/security/BASTION.md`
 
 ### Chantiers actifs
 

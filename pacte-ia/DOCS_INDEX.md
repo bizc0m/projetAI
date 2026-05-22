@@ -14,6 +14,7 @@ Objectif : eviter que le projet devienne une pile de fichiers impossible a relir
 6. `LA_MEUTE_MANIFESTE.md` — manifeste fondateur de LA MEUTE.
 7. `docs/LIEN_HUMAIN_IA.md` — cadrage du lien affectif humain-IA.
 8. `docs/RESET_DIPLOMATIQUE_OPERATIONNEL.md` — Reset Diplomatique operationnel.
+9. `docs/security/BASTION.md` — doctrine de protection, niveaux PACTE et garde-fous.
 
 ## 2. Canon actuel
 
@@ -28,6 +29,7 @@ Documents a traiter comme base de reference tant qu'ils ne sont pas remplaces :
 - `docs/INTER_AGENT_SYNC_PROTOCOL.md`
 - `docs/CONTEXT_PACK_ARCHITECTURE.md`
 - `docs/ORDRE_DU_JOUR_PROTOCOL.md`
+- `docs/security/BASTION.md`
 
 ## 3. LA MEUTE / Charlie's Angels
 
