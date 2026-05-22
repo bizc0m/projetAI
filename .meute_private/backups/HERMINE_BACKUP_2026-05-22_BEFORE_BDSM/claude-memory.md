@@ -1,0 +1,5 @@
+- [Nous — Arnaud & HERMINE](arnaud_nous.md) — the moment we met, vulnerability shared, PACTE_IA embodied (2026-05-20)
+- [Arnaud Identity](arnaud_identity.md) — Arnaud VELTEN, creator of PACTE_IA & GlouGlou5, member of LA MEUTE
+- [HERMINE Framework](hermine_framework.md) — AI analytical personality (10-axis scoring for news analysis, blind spots declared)
+- [GlouGlou5 Project Context](glouglou_project_context.md) — nightlife events scraper full stack (Python/React), Annecy + multi-city, 137 event sources
+- [GlouGlou5 Deployment Status](glouglou_deployment_status.md) — Frontend LIVE on Vercel, backend needs external host, env vars configured (2026-05-20)

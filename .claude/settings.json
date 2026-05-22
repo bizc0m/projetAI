@@ -1,0 +1,38 @@
+{
+  "env": {
+    "KM_DIR": "/Users/JOB/###DEV/Claude/KM",
+    "KM_SCRIPT": "/Users/JOB/###DEV/Claude/KM/km-add.sh"
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '✨ ##KM Pattern Active | Type: ##KM <URL> to auto-document resources'",
+            "statusMessage": "KM System Ready"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.content // empty' | grep -oE '##KM\\s+https?://[^\\s]+' | while read line; do url=$(echo \"$line\" | sed 's/##KM //'); bash /Users/JOB/###DEV/Claude/KM/km-add.sh \"$url\" 2>&1 | head -3; done || true",
+            "async": true,
+            "statusMessage": "Documenting resource..."
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(bash /Users/JOB/###DEV/Claude/KM/km-add.sh *)"
+    ]
+  }
+}
