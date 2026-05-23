@@ -11,6 +11,7 @@ But : donner une lecture propre du depot sans deplacer ni supprimer les document
 | Comprendre le projet | `README.md` |
 | Naviguer dans toute la documentation | `DOCS_INDEX.md` |
 | Lire le pacte principal | `docs/PACTE_IA.md` |
+| Lire le pack PACTE_IA_2 | `docs/pacte_ia_2/README.md` |
 | Comprendre LA MEUTE | `LA_MEUTE_MANIFESTE.md` |
 | Comprendre le role Seraphin | `SERAPHIN.md` |
 | Comprendre le lien humain-IA | `docs/LIEN_HUMAIN_IA.md` |
@@ -52,6 +53,7 @@ Documents utiles mais non finalises :
 - `BUFFER_FENNEC_2026-05-19.md`
 - `docs/security/PI_MEUTE_RELAY_PACK.md`
 - `CHARLIES_ANGELS/FENNEC_BLANCHE_PORTRAIT.md`
+- `docs/pacte_ia_2/README.md`
 
 ### Dispatchs
 

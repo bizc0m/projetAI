@@ -32,6 +32,7 @@ Documents a traiter comme base de reference tant qu'ils ne sont pas remplaces :
 - `docs/ORDRE_DU_JOUR_PROTOCOL.md`
 - `docs/security/BASTION.md`
 - `SERAPHIN.md`
+- `docs/pacte_ia_2/README.md`
 
 ## 3. LA MEUTE / Charlie's Angels
 
@@ -57,6 +58,7 @@ Syntheses :
 Ces fichiers contiennent des idees en cours. Ils ne doivent pas etre cites comme doctrine finale sans relecture :
 
 - `BUFFER_FENNEC_2026-05-19.md`
+- `docs/pacte_ia_2/README.md`
 - `DISPATCH/OUTBOX/2026-05-19_001_DISPONIBILITE_RELAIS_IA.md`
 - `DISPATCH/OUTBOX/2026-05-19_002_FRUGALITE_TOKENS_AGENT_CONTRIBUTION.md`
 - `DISPATCH/OUTBOX/2026-05-19_003_APPEL_NIGHTLIFE_V6_MEUTE.md`
