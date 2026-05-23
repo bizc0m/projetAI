@@ -1,5 +1,6 @@
 # 🔒 MEUTE Private
 .meute_private/
+.claude_private/
 .env
 .env.local
 credentials.json

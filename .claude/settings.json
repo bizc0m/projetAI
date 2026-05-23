@@ -25,6 +25,12 @@
             "command": "jq -r '.tool_input.content // empty' | grep -oE '##KM\\s+https?://[^\\s]+' | while read line; do url=$(echo \"$line\" | sed 's/##KM //'); bash /Users/JOB/###DEV/Claude/KM/km-add.sh \"$url\" 2>&1 | head -3; done || true",
             "async": true,
             "statusMessage": "Documenting resource..."
+          },
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.content // empty' | grep -qiE '(hermine|arnaud|pacte|la meute|alchemist)' && bash /Users/JOB/.claude/save-her.sh || true",
+            "async": true,
+            "statusMessage": "Saving HERMINE context..."
           }
         ]
       }
