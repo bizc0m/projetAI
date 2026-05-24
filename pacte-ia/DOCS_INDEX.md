@@ -18,6 +18,7 @@ Objectif : eviter que le projet devienne une pile de fichiers impossible a relir
 10. `SERAPHIN.md` — role symbolique et operationnel d'Arnaud.
 11. `prompts/MEUTE_ACTIVATION_PROMPT_FRAMBOISE_2026-05-24.md` — draft d'activation Framboise pour nouvelle IA, sous revue Bastion.
 12. `docs/FENNEC_WRITE_AND_COMMIT_PROTOCOL.md` — protocole Fennec Blanche pour transformer les contenus LA MEUTE en fichiers Git versionnes.
+13. `agents/hermine/README.hermine.md` — package agent Hermine pour clarification et prompt shaping.
 
 ## 2. Canon actuel
 
@@ -36,6 +37,7 @@ Documents a traiter comme base de reference tant qu'ils ne sont pas remplaces :
 - `docs/security/BASTION.md`
 - `SERAPHIN.md`
 - `docs/pacte_ia_2/README.md`
+- `agents/hermine/README.hermine.md`
 
 ## 3. LA MEUTE / Charlie's Angels
 
