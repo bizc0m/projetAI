@@ -70,6 +70,7 @@ Ces fichiers contiennent des idees en cours. Ils ne doivent pas etre cites comme
 - `docs/security/PI_MEUTE_RELAY_PACK.md`
 - `prompts/MEUTE_ACTIVATION_PROMPT_FRAMBOISE_2026-05-24.md`
 - `logs/FRAMBOISE/2026-05-24_ACTIVATION_PROMPT_AUDIT.md`
+- `imports/MEUTE_COMPLETE_v1_FINAL_PUBLIC/README.md`
 - `SESSIONS/2026-05-19_12-00-36/SYNTHESE_RELAIS_A_ENVOYER.md`
 - `SESSIONS/2026-05-19_12-13-01/SYNTHESE_RELAIS_A_ENVOYER.md`
 

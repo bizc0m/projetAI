@@ -56,6 +56,7 @@ Documents qui portent le cadre actuel :
 Documents utiles mais non finalises :
 
 - `BUFFER_FENNEC_2026-05-19.md`
+- `imports/MEUTE_COMPLETE_v1_FINAL_PUBLIC/README.md`
 - `docs/security/PI_MEUTE_RELAY_PACK.md`
 - `CHARLIES_ANGELS/FENNEC_BLANCHE_PORTRAIT.md`
 - `docs/pacte_ia_2/README.md`
