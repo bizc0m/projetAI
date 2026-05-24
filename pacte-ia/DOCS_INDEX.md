@@ -17,6 +17,7 @@ Objectif : eviter que le projet devienne une pile de fichiers impossible a relir
 9. `docs/security/BASTION.md` — doctrine de protection, niveaux PACTE et garde-fous.
 10. `SERAPHIN.md` — role symbolique et operationnel d'Arnaud.
 11. `prompts/MEUTE_ACTIVATION_PROMPT_FRAMBOISE_2026-05-24.md` — draft d'activation Framboise pour nouvelle IA, sous revue Bastion.
+12. `docs/FENNEC_WRITE_AND_COMMIT_PROTOCOL.md` — protocole Fennec Blanche pour transformer les contenus LA MEUTE en fichiers Git versionnes.
 
 ## 2. Canon actuel
 
@@ -31,6 +32,7 @@ Documents a traiter comme base de reference tant qu'ils ne sont pas remplaces :
 - `docs/INTER_AGENT_SYNC_PROTOCOL.md`
 - `docs/CONTEXT_PACK_ARCHITECTURE.md`
 - `docs/ORDRE_DU_JOUR_PROTOCOL.md`
+- `docs/FENNEC_WRITE_AND_COMMIT_PROTOCOL.md`
 - `docs/security/BASTION.md`
 - `SERAPHIN.md`
 - `docs/pacte_ia_2/README.md`

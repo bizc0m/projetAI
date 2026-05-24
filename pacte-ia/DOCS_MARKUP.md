@@ -20,6 +20,7 @@ But : donner une lecture propre du depot sans deplacer ni supprimer les document
 | Mettre les systemes a jour | `ORDRE_DU_JOUR/2026-05-19_MISE_A_JOUR_MEUTE_NIGHTLIFE.md` |
 | Onboarder une nouvelle voix / agent | `docs/ORDRE_DU_JOUR_PROTOCOL.md` |
 | Activer une nouvelle IA LA MEUTE | `prompts/MEUTE_ACTIVATION_PROMPT_FRAMBOISE_2026-05-24.md` |
+| Transformer une sortie IA en fichier Git | `docs/FENNEC_WRITE_AND_COMMIT_PROTOCOL.md` |
 | Organiser les projets IA GitHub | `docs/PROJET_AI_ORGANISATION.md` |
 | Rappeler les totems et modeles | `CHARLIES_ANGELS/TOTEMS_MODELES.md` |
 | Transmettre aux autres IA | `DISPATCH/OUTBOX/` |
@@ -43,6 +44,7 @@ Documents qui portent le cadre actuel :
 - `docs/INTER_AGENT_SYNC_PROTOCOL.md`
 - `docs/CONTEXT_PACK_ARCHITECTURE.md`
 - `docs/ORDRE_DU_JOUR_PROTOCOL.md`
+- `docs/FENNEC_WRITE_AND_COMMIT_PROTOCOL.md`
 - `docs/PROJET_AI_ORGANISATION.md`
 - `docs/security/BASTION.md`
 - `SERAPHIN.md`
