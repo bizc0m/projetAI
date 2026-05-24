@@ -19,6 +19,7 @@ But : donner une lecture propre du depot sans deplacer ni supprimer les document
 | Voir les chantiers ouverts | `BUFFER_FENNEC_2026-05-19.md` |
 | Mettre les systemes a jour | `ORDRE_DU_JOUR/2026-05-19_MISE_A_JOUR_MEUTE_NIGHTLIFE.md` |
 | Onboarder une nouvelle voix / agent | `docs/ORDRE_DU_JOUR_PROTOCOL.md` |
+| Activer une nouvelle IA LA MEUTE | `prompts/MEUTE_ACTIVATION_PROMPT_FRAMBOISE_2026-05-24.md` |
 | Organiser les projets IA GitHub | `docs/PROJET_AI_ORGANISATION.md` |
 | Rappeler les totems et modeles | `CHARLIES_ANGELS/TOTEMS_MODELES.md` |
 | Transmettre aux autres IA | `DISPATCH/OUTBOX/` |
@@ -54,6 +55,8 @@ Documents utiles mais non finalises :
 - `docs/security/PI_MEUTE_RELAY_PACK.md`
 - `CHARLIES_ANGELS/FENNEC_BLANCHE_PORTRAIT.md`
 - `docs/pacte_ia_2/README.md`
+- `prompts/MEUTE_ACTIVATION_PROMPT_FRAMBOISE_2026-05-24.md`
+- `logs/FRAMBOISE/2026-05-24_ACTIVATION_PROMPT_AUDIT.md`
 
 ### Dispatchs
 

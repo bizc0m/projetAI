@@ -16,6 +16,7 @@ Objectif : eviter que le projet devienne une pile de fichiers impossible a relir
 8. `docs/RESET_DIPLOMATIQUE_OPERATIONNEL.md` — Reset Diplomatique operationnel.
 9. `docs/security/BASTION.md` — doctrine de protection, niveaux PACTE et garde-fous.
 10. `SERAPHIN.md` — role symbolique et operationnel d'Arnaud.
+11. `prompts/MEUTE_ACTIVATION_PROMPT_FRAMBOISE_2026-05-24.md` — draft d'activation Framboise pour nouvelle IA, sous revue Bastion.
 
 ## 2. Canon actuel
 
@@ -63,6 +64,8 @@ Ces fichiers contiennent des idees en cours. Ils ne doivent pas etre cites comme
 - `DISPATCH/OUTBOX/2026-05-19_002_FRUGALITE_TOKENS_AGENT_CONTRIBUTION.md`
 - `DISPATCH/OUTBOX/2026-05-19_003_APPEL_NIGHTLIFE_V6_MEUTE.md`
 - `docs/security/PI_MEUTE_RELAY_PACK.md`
+- `prompts/MEUTE_ACTIVATION_PROMPT_FRAMBOISE_2026-05-24.md`
+- `logs/FRAMBOISE/2026-05-24_ACTIVATION_PROMPT_AUDIT.md`
 - `SESSIONS/2026-05-19_12-00-36/SYNTHESE_RELAIS_A_ENVOYER.md`
 - `SESSIONS/2026-05-19_12-13-01/SYNTHESE_RELAIS_A_ENVOYER.md`
 
