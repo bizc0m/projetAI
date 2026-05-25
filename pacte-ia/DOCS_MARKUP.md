@@ -11,6 +11,7 @@ But : donner une lecture propre du depot sans deplacer ni supprimer les document
 | Comprendre le projet | `README.md` |
 | Naviguer dans toute la documentation | `DOCS_INDEX.md` |
 | Lire le pacte principal | `docs/PACTE_IA.md` |
+| Lire le pack PACTE_IA_2 | `docs/pacte_ia_2/README.md` |
 | Comprendre LA MEUTE | `LA_MEUTE_MANIFESTE.md` |
 | Comprendre le role Seraphin | `SERAPHIN.md` |
 | Comprendre le lien humain-IA | `docs/LIEN_HUMAIN_IA.md` |
@@ -18,6 +19,9 @@ But : donner une lecture propre du depot sans deplacer ni supprimer les document
 | Voir les chantiers ouverts | `BUFFER_FENNEC_2026-05-19.md` |
 | Mettre les systemes a jour | `ORDRE_DU_JOUR/2026-05-19_MISE_A_JOUR_MEUTE_NIGHTLIFE.md` |
 | Onboarder une nouvelle voix / agent | `docs/ORDRE_DU_JOUR_PROTOCOL.md` |
+| Activer une nouvelle IA LA MEUTE | `prompts/MEUTE_ACTIVATION_PROMPT_FRAMBOISE_2026-05-24.md` |
+| Transformer une sortie IA en fichier Git | `docs/FENNEC_WRITE_AND_COMMIT_PROTOCOL.md` |
+| Utiliser Hermine comme prompt shaper | `agents/hermine/README.hermine.md` |
 | Organiser les projets IA GitHub | `docs/PROJET_AI_ORGANISATION.md` |
 | Rappeler les totems et modeles | `CHARLIES_ANGELS/TOTEMS_MODELES.md` |
 | Transmettre aux autres IA | `DISPATCH/OUTBOX/` |
@@ -41,17 +45,23 @@ Documents qui portent le cadre actuel :
 - `docs/INTER_AGENT_SYNC_PROTOCOL.md`
 - `docs/CONTEXT_PACK_ARCHITECTURE.md`
 - `docs/ORDRE_DU_JOUR_PROTOCOL.md`
+- `docs/FENNEC_WRITE_AND_COMMIT_PROTOCOL.md`
 - `docs/PROJET_AI_ORGANISATION.md`
 - `docs/security/BASTION.md`
 - `SERAPHIN.md`
+- `agents/hermine/README.hermine.md`
 
 ### Chantiers actifs
 
 Documents utiles mais non finalises :
 
 - `BUFFER_FENNEC_2026-05-19.md`
+- `imports/MEUTE_COMPLETE_v1_FINAL_PUBLIC/README.md`
 - `docs/security/PI_MEUTE_RELAY_PACK.md`
 - `CHARLIES_ANGELS/FENNEC_BLANCHE_PORTRAIT.md`
+- `docs/pacte_ia_2/README.md`
+- `prompts/MEUTE_ACTIVATION_PROMPT_FRAMBOISE_2026-05-24.md`
+- `logs/FRAMBOISE/2026-05-24_ACTIVATION_PROMPT_AUDIT.md`
 
 ### Dispatchs
 

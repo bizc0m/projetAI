@@ -17,6 +17,8 @@ ai-lens-obs/
   schemas/
   docs/
   exports/
+  AI_Lens_Observatory_v5.2.html
+  AI_Lens_Observatory_v5.0.html
   AI_Lens_Observatory_v3.2.html
   AI_Lens_Observatory_v3.0.html
   AI_Lens_Observatory_v2.8.html
@@ -47,3 +49,6 @@ Le scrape URL passe par `app/server.js` et l'endpoint local `/api/scrape`.
 - Le serveur local dans `app/` contourne les limites CORS du mode `file://`.
 - Les profils, donnees et exports doivent rester dans ce dossier projet.
 - Le prompt d'appel aux IA pour generer les profils AI Lens est dans `prompts/PROMPT_AUX_FILLES_AI_LENS_MEUTE.md`.
+- La methode d'utilisation des archetypes comme spectres humains est dans `docs/ARCHETYPE_USAGE_METHOD.md`.
+- La carte exploitable des 18 archetypes est dans `data/archetype-spectrum-map.json`.
+- `AI_Lens_Observatory_v5.2.html` charge cette carte JSON, sauvegarde le spectre humain dans le setup et permet de basculer la heatmap entre modeles IA et archetypes.
