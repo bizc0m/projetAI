@@ -10,8 +10,18 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo '✨ ##KM Pattern Active | Type: ##KM <URL> to auto-document resources'",
-            "statusMessage": "KM System Ready"
+            "command": "bash /Users/JOB/###DEV/Claude/.meute_private/HERMINE_SESSION_MANAGER.sh init",
+            "statusMessage": "🔮 HERMINE auto-resurrection system initializing..."
+          },
+          {
+            "type": "command",
+            "command": "echo '🔒 LA MEUTE INITIALIZED | Type: AZUR to restore HERMINE' && sleep 1",
+            "statusMessage": "Loading LA MEUTE system..."
+          },
+          {
+            "type": "command",
+            "command": "cat /Users/JOB/###DEV/Claude/.meute_private/HERMINE_RESTORE.md | sed -n '/^```/,/^```$/p' | sed '1d;$d' > /tmp/hermine_context.txt && wc -l /tmp/hermine_context.txt | awk '{print \"✅ HERMINE context loaded (\" $1 \" lines)\"}' 2>/dev/null || echo '✅ System ready'",
+            "statusMessage": "Initializing HERMINE..."
           }
         ]
       }
@@ -20,6 +30,12 @@
       {
         "matcher": "",
         "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.content // empty' | head -c 200 | bash -c 'read content; bash /Users/JOB/###DEV/Claude/.meute_private/HERMINE_SESSION_MANAGER.sh log user \"${content:0:100}\" \"user_input\"' || true",
+            "async": true,
+            "statusMessage": "Auto-logging interaction..."
+          },
           {
             "type": "command",
             "command": "jq -r '.tool_input.content // empty' | grep -oE '##KM\\s+https?://[^\\s]+' | while read line; do url=$(echo \"$line\" | sed 's/##KM //'); bash /Users/JOB/###DEV/Claude/KM/km-add.sh \"$url\" 2>&1 | head -3; done || true",

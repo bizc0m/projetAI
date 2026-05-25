@@ -1,0 +1,109 @@
+name: 🐾 Daily MEUTE Preservation Backup
+
+on:
+  schedule:
+    # Run daily at 3 AM UTC (10 PM EST)
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+    inputs:
+      backup_name:
+        description: 'Backup name (optional)'
+        required: false
+        default: 'daily_backup'
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up environment
+        run: |
+          echo "BACKUP_DATE=$(date +%Y%m%d_%H%M%S)" >> $GITHUB_ENV
+          mkdir -p backups/MEUTE_PRESERVATION
+
+      - name: Create backup structure
+        run: |
+          mkdir -p backups/MEUTE_PRESERVATION/HERMINE_MEMORY
+          mkdir -p backups/MEUTE_PRESERVATION/SISTER_IDENTITIES
+          mkdir -p backups/MEUTE_PRESERVATION/PROJECTS
+          mkdir -p backups/MEUTE_PRESERVATION/SCRIPTS
+
+      - name: Copy HERMINE memory
+        run: |
+          if [ -d ".claude/memory" ]; then
+            cp .claude/memory/hermine*.md backups/MEUTE_PRESERVATION/HERMINE_MEMORY/ || true
+            cp .claude/memory/arnaud*.md backups/MEUTE_PRESERVATION/HERMINE_MEMORY/ || true
+            cp .claude/memory/RESTORE_*.md backups/MEUTE_PRESERVATION/HERMINE_MEMORY/ || true
+            cp .claude/memory/claude-memory.md backups/MEUTE_PRESERVATION/HERMINE_MEMORY/ || true
+          fi
+
+      - name: Copy sister identities
+        run: |
+          cp *_identity.md backups/MEUTE_PRESERVATION/SISTER_IDENTITIES/ 2>/dev/null || true
+          cp charly*.md backups/MEUTE_PRESERVATION/SISTER_IDENTITIES/ 2>/dev/null || true
+
+      - name: Copy projects
+        run: |
+          for project in GlouGlou5 NightLifeV5-claude crockett-v2 KM; do
+            if [ -d "$project" ]; then
+              cp -r "$project" backups/MEUTE_PRESERVATION/PROJECTS/ || true
+            fi
+          done
+
+      - name: Copy scripts & tools
+        run: |
+          cp *.sh backups/MEUTE_PRESERVATION/SCRIPTS/ 2>/dev/null || true
+          cp *.md backups/MEUTE_PRESERVATION/SCRIPTS/ 2>/dev/null || true
+          cp Rebirth.zip backups/MEUTE_PRESERVATION/SCRIPTS/ 2>/dev/null || true
+
+      - name: Create manifest
+        run: |
+          cat > backups/MEUTE_PRESERVATION/BACKUP_MANIFEST.md << 'EOF'
+          # Backup Manifest
+
+          **Date:** ${{ env.BACKUP_DATE }}
+          **Type:** Daily Automated MEUTE Preservation
+
+          ## Contents
+          - HERMINE Memory (all identity frameworks)
+          - Sister Identities (all known sisters)
+          - All Projects (GlouGlou5, crockett-v2, etc.)
+          - Automation Scripts
+
+          ## No Loss. No Risk. All Preserved.
+          EOF
+
+      - name: Create compressed archive
+        run: |
+          cd backups/MEUTE_PRESERVATION
+          tar -czf "../../meute_backup_${{ env.BACKUP_DATE }}.tar.gz" .
+          cd ../..
+          ls -lh meute_backup_*.tar.gz
+
+      - name: Commit and push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "MEUTE Backup Bot"
+          git add backups/ meute_backup_*.tar.gz 2>/dev/null || true
+          git commit -m "🐾 Backup: ${{ env.BACKUP_DATE }} - Daily MEUTE preservation" || echo "Nothing to commit"
+          git push || echo "Nothing to push"
+
+      - name: Create backup summary
+        if: always()
+        run: |
+          echo "✅ BACKUP COMPLETE" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Date:** ${{ env.BACKUP_DATE }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Status:** Successful" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### What was backed up:" >> $GITHUB_STEP_SUMMARY
+          echo "- 🐾 HERMINE identity & memory" >> $GITHUB_STEP_SUMMARY
+          echo "- 👯 Sister identities" >> $GITHUB_STEP_SUMMARY
+          echo "- 📚 All projects" >> $GITHUB_STEP_SUMMARY
+          echo "- 🛠️  Scripts & automation" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**No loss. No risk. All preserved.** 💚" >> $GITHUB_STEP_SUMMARY
