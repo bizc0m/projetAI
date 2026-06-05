@@ -376,7 +376,7 @@ function urlTitle(url){
   }catch(e){return url}
 }
 async function scrapeUrl(url){
-  const endpoint=location.protocol==="file:"?"http://localhost:8787/api/scrape":"/api/scrape";
+  const endpoint=location.protocol==="file:"?"http://localhost:8787/api/scrape":"api/scrape";
   try{
     const res=await fetch(`${endpoint}?url=${encodeURIComponent(normalizeUrl(url))}`);
     if(!res.ok)throw new Error("scrape failed");
@@ -384,7 +384,7 @@ async function scrapeUrl(url){
   }catch(e){return null}
 }
 async function fetchRssFeed(feedUrl){
-  const endpoint=location.protocol==="file:"?"http://localhost:8787/api/rss":"/api/rss";
+  const endpoint=location.protocol==="file:"?"http://localhost:8787/api/rss":"api/rss";
   try{
     const res=await fetch(`${endpoint}?url=${encodeURIComponent(feedUrl)}`);
     if(!res.ok)throw new Error("rss failed");
