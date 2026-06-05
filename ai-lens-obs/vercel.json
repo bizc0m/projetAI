@@ -1,0 +1,10 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/AI_Lens_Observatory_v2.html",
+      "destination": "/index.html"
+    }
+  ]
+}
