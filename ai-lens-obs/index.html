@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI Lens Observatory v5.2 · News Cartography</title>
+<title>AI Lens Observatory v5.3 · News Cartography</title>
 <style>
 *,*::before,*::after{box-sizing:border-box}
 :root{
@@ -62,7 +62,7 @@ h2{font-size:13px;font-weight:950;text-transform:uppercase;margin:0}.headnote{fo
 <body>
 <main class="app">
   <div class="topbar">
-    <div class="brandblock"><div class="brand"><span>AI</span> Lens Observatory <b class="version-badge">v5.2</b></div><div class="subtitle">News relevance · standalone cognitive cartography</div></div>
+    <div class="brandblock"><div class="brand"><span>AI</span> Lens Observatory <b class="version-badge">v5.3</b><span class="subtitle">News relevance · standalone cognitive cartography</span></div></div>
     <div class="topspacer"></div>
     <div class="tool-actions"><button class="btn" id="toggleSources">Sources</button><button class="btn" id="exportSetup">Setup JSON</button><button class="btn" id="importSetupBtn">Import setup</button><input id="importSetupFile" type="file" accept="application/json,.json" hidden><button class="btn dark" id="openArchetypes">Archetypes IA</button></div>
   </div>
@@ -304,7 +304,10 @@ function loadSetup(){
   try{
     const setup=JSON.parse(localStorage.getItem(setupKey)||"null");
     if(!setup)return;
-    if(Array.isArray(setup.sources)&&setup.sources.length)rssSources=dedupeSources(setup.sources);
+    if(Array.isArray(setup.sources)&&setup.sources.length){
+      const savedSources=dedupeSources(setup.sources);
+      rssSources=savedSources.length?savedSources:[...defaultRssSources];
+    }
     if(Array.isArray(setup.heatmapModelIds))heatmapModelIds=setup.heatmapModelIds.filter(id=>modelDefs.some(m=>m.id===id)).slice(0,6);
     if(Array.isArray(setup.heatmapArchetypeIds))heatmapArchetypeIds=setup.heatmapArchetypeIds.filter(id=>id==="saved"||archetypeDefs.some(a=>a.id===id)).slice(0,6);
     if(setup.heatmapMode==="models"||setup.heatmapMode==="archetypes")heatmapMode=setup.heatmapMode;
@@ -312,10 +315,11 @@ function loadSetup(){
   }catch(e){}
   if(heatmapModelIds.length<6)heatmapModelIds=[...new Set([...heatmapModelIds,...modelDefs.map(m=>m.id)])].slice(0,6);
   if(heatmapArchetypeIds.length<6)heatmapArchetypeIds=[...new Set([...heatmapArchetypeIds,"ethic","audit","regulator","counterpower","collab","democrat"])].slice(0,6);
+  if(!rssSources.length)rssSources=[...defaultRssSources];
   sourceLibrary=rssSources;
 }
 function saveSetup(){
-  const setup={version:"v5.2",sources:rssSources,heatmapMode,heatmapModelIds,heatmapArchetypeIds,savedArchetype,archetypeSourceStatus,savedAt:new Date().toISOString()};
+  const setup={version:"v5.3",sources:rssSources,heatmapMode,heatmapModelIds,heatmapArchetypeIds,savedArchetype,archetypeSourceStatus,savedAt:new Date().toISOString()};
   localStorage.setItem(setupKey,JSON.stringify(setup));
   return setup;
 }
@@ -704,6 +708,7 @@ async function importCurrentRss(){
   renderAll();
   byId("importRss").textContent="Charger source";
   byId("importRss").disabled=false;
+  if(byId("sourceStatus"))byId("sourceStatus").textContent=sourceItems.length?`${source.name}: ${sourceItems.length} article(s) charge(s).`:`${source.name}: aucun article charge. Verifie que le serveur local tourne.`;
   toast(imported.length?`${imported.length} articles RSS importes`:"RSS vide ou serveur local absent: articles existants conserves");
 }
 async function selectRssSource(index,{load=true}={}){
@@ -777,7 +782,7 @@ async function init(){
     const data=r.ok?await r.json():[];
     meuteDirectory=Array.isArray(data)?data:[];
   }catch(e){}
-  renderAll();
+  await selectRssSource(activeSourceIndex,{load:true});
 }
 init();
 </script>
